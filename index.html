@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Clock</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="clock"></div>
+
+  <script>
+    
+    function updateClock() {
+      // Get the current time
+      var now = new Date();
+
+      // Extract hours, minutes, and seconds
+      var hours = now.getHours();
+      var minutes = now.getMinutes();
+      var seconds = now.getSeconds();
+
+      // Format hours, minutes, and seconds to ensure they have two digits
+      hours = hours < 10 ? '0' + hours : hours;
+      minutes = minutes < 10 ? '0' + minutes : minutes;
+      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+      // Generate the formatted time string
+      var timeString = hours + ':' + minutes + ':' + seconds;
+
+      // Display the time in the clock element
+      document.getElementById('clock').innerText = timeString;
+    }
+
+    // Set an interval to update the clock every second
+    setInterval(updateClock, 1000);
+
+    // Call updateClock immediately to display the initial time
+    updateClock();
+  </script>
+</body>
+</html>
